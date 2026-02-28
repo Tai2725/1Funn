@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="1Funn - Nền tảng quản lý quảng cáo tập trung và thông minh. Tối ưu hóa chiến dịch Facebook, TikTok, Google Ads với sức mạnh AI. Dùng thử miễn phí.">
+    <meta name="keywords" content="quản lý quảng cáo, ads manager, facebook ads, tiktok ads, google ads, AI marketing, tối ưu quảng cáo">
+    <meta property="og:title" content="1Funn - Nền Tảng Quản Lý Quảng Cáo Tập Trung & Thông Minh">
+    <meta property="og:description" content="Giải pháp toàn diện dành cho doanh nghiệp. Tối ưu hóa chiến dịch, phân tích thuật toán và bứt phá doanh thu với AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    <title>1Funn - Nền Tảng Quản Lý Quảng Cáo Tập Trung & Thông Minh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables - Bảng màu xanh dương đậm */
+        :root {
+            --bg-main: #0B1120;
+            --bg-card: #151E32;
+            --primary: #3B82F6;
+            --primary-hover: #2563EB;
+            --accent: #06B6D4;
+            --text-light: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ----- Hiệu ứng cuộn trang (Scroll Animations) ----- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ----- Navbar ----- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            color: var(--text-light);
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ----- Hero Section ----- */
+        .hero {
+            padding: 160px 20px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            min-height: 100vh;
+        }
+
+        .hero-content { flex: 1; }
+
+        .hero h1 {
+            font-size: 46px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+        
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .glow-bg {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: var(--primary);
+            filter: blur(150px);
+            border-radius: 50%;
+            opacity: 0.25;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        /* ----- Features Section ----- */
+        .features {
+            padding: 100px 20px;
+            background-color: #0E1629;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        .grid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 35px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* ----- AI Section ----- */
+        .ai-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .ai-content { flex: 1; }
+        
+        .ai-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .ai-features {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .ai-features li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .ai-features i {
+            color: var(--accent);
+            margin-top: 4px;
+            font-size: 18px;
+        }
+
+        /* ----- CTA Section ----- */
+        .cta-section {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #0B1120, #0E1629);
+        }
+        
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50px; left: -50px;
+            width: 150px; height: 150px;
+            background: var(--primary);
+            filter: blur(80px);
+            opacity: 0.3;
+        }
+
+        /* ----- Footer ----- */
+        footer {
+            background-color: #050810;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content h3 {
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        .footer-content p {
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        /* ----- Responsive Design ----- */
+
+        /* ----- Stats Section ----- */
+        .stats-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0E1629 0%, #151E32 100%);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: var(--border-color);
+        }
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* ----- Pricing Section ----- */
+        .pricing-section {
+            padding: 100px 20px;
+            background-color: var(--bg-main);
+        }
+        .pricing-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: center;
+        }
+        .pricing-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .pricing-card.popular {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(59,130,246,0.2);
+        }
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .pricing-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .pricing-card .price {
+            font-size: 42px;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--text-light);
+        }
+        .pricing-card .price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        .pricing-card .desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        .pricing-features li {
+            padding: 10px 0;
+            color: var(--text-muted);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .pricing-features li i {
+            color: var(--accent);
+            font-size: 14px;
+            width: 18px;
+        }
+        .pricing-features li.disabled {
+            opacity: 0.4;
+        }
+        .pricing-features li.disabled i {
+            color: var(--text-muted);
+        }
+
+        /* ----- Testimonials Section ----- */
+        .testimonials-section {
+            padding: 100px 20px;
+            background-color: #0E1629;
+        }
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 35px 30px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+        .testimonial-card:hover {
+            border-color: rgba(59,130,246,0.4);
+            transform: translateY(-4px);
+        }
+        .testimonial-stars {
+            color: #FBBF24;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        .testimonial-text {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+        }
+        .testimonial-author h4 {
+            font-size: 15px;
+            margin-bottom: 3px;
+        }
+        .testimonial-author p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ----- FAQ Section ----- */
+        .faq-section {
+            padding: 100px 20px;
+            background-color: var(--bg-main);
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+        .faq-item:hover {
+            border-color: rgba(59,130,246,0.3);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 24px;
+            color: var(--text-light);
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+        }
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+        .faq-answer p {
+            padding: 0 24px 20px;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ----- Enhanced Footer ----- */
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        .footer-col p, .footer-col li {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+        }
+        .footer-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+            text-align: center;
+            color: #475569;
+            font-size: 14px;
+        }
+
+        /* ----- Scroll to Top ----- */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(59,130,246,0.4);
+        }
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-top:hover {
+            transform: translateY(-4px);
+        }
+
+        /* ----- Particle Background ----- */
+        .hero { position: relative; }
+        .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: float 6s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+            50% { transform: translateY(-60px) scale(1.5); opacity: 0.5; }
+        }
+
+        /* ----- Stagger delay ----- */
+        .card.reveal:nth-child(1) { transition-delay: 0.1s; }
+        .card.reveal:nth-child(2) { transition-delay: 0.2s; }
+        .card.reveal:nth-child(3) { transition-delay: 0.3s; }
+        .card.reveal:nth-child(4) { transition-delay: 0.4s; }
+
+        /* ----- Nav active state ----- */
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        /* ----- Responsive Design ----- */
+        @media (max-width: 992px) {
+            .hero, .ai-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-buttons { justify-content: center; }
+            .ai-features li { text-align: left; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-item:nth-child(2)::after { display: none; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+            .pricing-card.popular { transform: none; }
+            .pricing-card.popular:hover { transform: translateY(-8px); }
+            .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            .nav-menu {
+                position: absolute;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--bg-card);
+                width: 100%;
+                padding: 20px;
+                transition: var(--transition-smooth);
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-menu.active { left: 0; }
+            .nav-links { flex-direction: column; gap: 20px; width: 100%; text-align: center;}
+            .hero { padding-top: 130px; }
+            .hero h1 { font-size: 36px; }
+            .cta-box { padding: 40px 20px; }
+        }
+    </style>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2198303723911346');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2198303723911346&ev=PageView&noscript=1"
+    /></noscript>
+    </head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo"><i class="fa-solid fa-chart-line"></i> 1<span>Funn</span></a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="#trang-chu">Trang chủ</a></li>
+                    <li><a href="#tinh-nang">Tính năng</a></li>
+                    <li><a href="#ai-thong-minh">AI & Phân tích</a></li>
+                    <li><a href="#bang-gia">Bảng giá</a></li>
+                    <li><a href="#danh-gia">Đánh giá</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <a href="#dang-ky" class="btn-primary">Bắt đầu ngay</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="trang-chu" class="hero reveal">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>Quản Lý Quảng Cáo Tập Trung & Thông Minh Hơn</h1>
+            <p>Giải pháp toàn diện dành cho doanh nghiệp và shop bán hàng online. Tối ưu hóa chiến dịch, phân tích thuật toán và bứt phá doanh thu với sức mạnh của Trí tuệ nhân tạo (AI).</p>
+            <div class="hero-buttons">
+                <a href="#dang-ky" class="btn-primary">Dùng thử miễn phí</a>
+                <a href="#tinh-nang" class="btn-outline">Khám phá ngay</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="glow-bg"></div>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="1Funn Dashboard Preview">
+        </div>
+    </section>
+
+    <section class="stats-section reveal">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="5000">0</div>
+                <div class="stat-label">Doanh nghiệp tin dùng</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="10">0</div>
+                <div class="stat-label">Tỷ đồng ngân sách đã quản lý</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="99">0</div>
+                <div class="stat-label">Uptime hệ thống (%)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">Hỗ trợ khách hàng (giờ/ngày)</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tinh-nang" class="features">
+        <div class="section-header reveal">
+            <h2>Tính Năng Vượt Trội Của 1Funn</h2>
+            <p>Đơn giản hóa mọi thao tác, cung cấp dữ liệu tức thời và giúp bạn đưa ra quyết định chính xác nhất.</p>
+        </div>
+        
+        <div class="grid-container">
+            <div class="card reveal">
+                <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Đánh Giá Thời Gian Thực</h3>
+                <p>Theo dõi hiệu suất quảng cáo từng giây. Cập nhật chỉ số CTR, CPC, CPA liên tục không có độ trễ để kịp thời điều chỉnh ngân sách.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon"><i class="fa-solid fa-earth-asia"></i></div>
+                <h3>Cập Nhật Thị Trường</h3>
+                <p>Nắm bắt trend nhanh chóng. Công cụ tự động thu thập và phân tích xu hướng mới nhất từ thị trường để bạn luôn đi trước đối thủ.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <h3>Phân Tích Thuật Toán</h3>
+                <p>Giải mã các thay đổi thuật toán của nền tảng (Facebook, TikTok, Google). Đề xuất hướng đi an toàn và tối ưu nhất cho tài khoản.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>Thao Tác Dễ Dàng</h3>
+                <p>Giao diện UI/UX được thiết kế tối giản, thân thiện. Quản lý hàng trăm chiến dịch trên nhiều nền tảng chỉ trên một màn hình.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-thong-minh" class="ai-section reveal">
+        <div class="hero-image">
+            <div class="glow-bg" style="background: var(--accent);"></div>
+            <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=800&q=80" alt="AI Analytics Integration">
+        </div>
+        <div class="ai-content">
+            <h2>Đề Xuất & Tích Hợp AI Thông Minh</h2>
+            <p style="color: var(--text-muted); font-size: 18px;">Hệ thống AI của 1Funn không chỉ báo cáo số liệu mà còn đóng vai trò như một chuyên gia Digital Marketing thực thụ.</p>
+            <ul class="ai-features">
+                <li><i class="fa-solid fa-check-circle"></i> Tự động nhận diện nội dung hoặc tệp khách hàng đang cạn kiệt hiệu quả.</li>
+                <li><i class="fa-solid fa-check-circle"></i> Đề xuất tự động tăng/giảm ngân sách dựa trên thuật toán dự đoán.</li>
+                <li><i class="fa-solid fa-check-circle"></i> Gợi ý ý tưởng nội dung và từ khóa đang thịnh hành theo ngành hàng.</li>
+                <li><i class="fa-solid fa-check-circle"></i> Cảnh báo rủi ro tài khoản hoặc vi phạm chính sách trước khi lên camp.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="bang-gia" class="pricing-section">
+        <div class="section-header reveal">
+            <h2>Bảng Giá Dịch Vụ</h2>
+            <p>Lựa chọn gói phù hợp nhất với quy mô doanh nghiệp của bạn. Nâng cấp bất cứ lúc nào.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card reveal">
+                <h3>Starter</h3>
+                <p class="desc">Dành cho cá nhân & freelancer</p>
+                <div class="price">0đ <span>/ tháng</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Quản lý 3 tài khoản quảng cáo</li>
+                    <li><i class="fa-solid fa-check"></i> Báo cáo cơ bản</li>
+                    <li><i class="fa-solid fa-check"></i> Cập nhật thị trường hàng tuần</li>
+                    <li class="disabled"><i class="fa-solid fa-xmark"></i> AI đề xuất ngân sách</li>
+                    <li class="disabled"><i class="fa-solid fa-xmark"></i> Hỗ trợ ưu tiên</li>
+                </ul>
+                <a href="#dang-ky" class="btn-outline" style="width:100%;text-align:center;">Bắt đầu miễn phí</a>
+            </div>
+            <div class="pricing-card popular reveal">
+                <div class="popular-badge">Phổ biến nhất</div>
+                <h3>Pro</h3>
+                <p class="desc">Dành cho shop online & SME</p>
+                <div class="price">499K <span>/ tháng</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Quản lý 20 tài khoản quảng cáo</li>
+                    <li><i class="fa-solid fa-check"></i> Báo cáo thời gian thực</li>
+                    <li><i class="fa-solid fa-check"></i> Phân tích thuật toán nâng cao</li>
+                    <li><i class="fa-solid fa-check"></i> AI đề xuất ngân sách</li>
+                    <li><i class="fa-solid fa-check"></i> Hỗ trợ chat trực tuyến</li>
+                </ul>
+                <a href="#dang-ky" class="btn-primary" style="width:100%;text-align:center;">Chọn gói Pro</a>
+            </div>
+            <div class="pricing-card reveal">
+                <h3>Enterprise</h3>
+                <p class="desc">Dành cho agency & doanh nghiệp lớn</p>
+                <div class="price">Liên hệ</div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Không giới hạn tài khoản</li>
+                    <li><i class="fa-solid fa-check"></i> API tích hợp riêng</li>
+                    <li><i class="fa-solid fa-check"></i> AI preds + Auto-scaling</li>
+                    <li><i class="fa-solid fa-check"></i> Account Manager riêng</li>
+                    <li><i class="fa-solid fa-check"></i> SLA 99.99% uptime</li>
+                </ul>
+                <a href="#dang-ky" class="btn-outline" style="width:100%;text-align:center;">Liên hệ tư vấn</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="danh-gia" class="testimonials-section">
+        <div class="section-header reveal">
+            <h2>Khách Hàng Nói Gì Về 1Funn</h2>
+            <p>Hàng nghìn doanh nghiệp đã tin tưởng và đồng hành cùng chúng tôi.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="testimonial-text">"1Funn giúp chúng tôi tiết kiệm 40% chi phí quảng cáo chỉ sau 2 tháng sử dụng. AI đề xuất ngân sách cực kỳ chính xác!"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">TH</div>
+                    <div>
+                        <h4>Trần Hoàng</h4>
+                        <p>CEO, ShopHouse Việt Nam</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="testimonial-text">"Giao diện rất dễ dùng, quản lý cùng lúc Facebook và TikTok Ads trên 1 màn hình. Đội ngũ hỗ trợ cực kỳ tận tâm."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">LM</div>
+                    <div>
+                        <h4>Lê Mai</h4>
+                        <p>Marketing Director, BeautyBox</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <p class="testimonial-text">"Tính năng cảnh báo rủi ro tài khoản đã cứu chúng tôi khỏi bị khóa tài khoản nhiều lần. Một công cụ không thể thiếu!"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">PD</div>
+                    <div>
+                        <h4>Phạm Dũng</h4>
+                        <p>Founder, AdsViet Agency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="section-header reveal">
+            <h2>Câu Hỏi Thường Gặp</h2>
+            <p>Giải đáp những thắc mắc phổ biến nhất về 1Funn.</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">1Funn hỗ trợ những nền tảng quảng cáo nào? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Hiện tại 1Funn hỗ trợ Facebook Ads, TikTok Ads và Google Ads. Chúng tôi đang phát triển thêm tích hợp với Zalo Ads và LinkedIn Ads trong tương lai gần.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">AI của 1Funn hoạt động như thế nào? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Hệ thống AI phân tích dữ liệu từ hàng triệu chiến dịch, học hỏi từ mẫu thành công và tự động đưa ra đề xuất về ngân sách, nội dung và đối tượng mục tiêu phù hợp nhất cho ngành hàng của bạn.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">Tôi có thể dùng thử miễn phí không? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Hoàn toàn có! Gói Starter hoàn toàn miễn phí với đầy đủ tính năng cơ bản. Bạn có thể nâng cấp lên gói Pro bất cứ lúc nào khi cần thêm tính năng nâng cao.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">Dữ liệu của tôi có được bảo mật không? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Chúng tôi sử dụng mã hóa AES-256 và tuân thủ chuẩn bảo mật quốc tế. Dữ liệu của bạn được lưu trữ an toàn trên hạ tầng đám mây đạt chuẩn ISO 27001.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">Làm sao để liên hệ hỗ trợ? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Bạn có thể liên hệ chúng tôi qua chat trực tuyến 24/7, email support@1funn.com, hoặc hotline 1900-xxxx trong giờ hành chính.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dang-ky" class="cta-section reveal">
+        <div class="cta-box">
+            <h2 style="font-size: 32px; margin-bottom: 15px;">Sẵn sàng bứt phá doanh thu cùng 1Funn?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Tham gia ngay hôm nay để trải nghiệm toàn bộ tính năng quản lý quảng cáo tự động hóa.</p>
+            <a href="#" class="btn-primary" style="font-size: 18px; padding: 12px 30px;">Tạo tài khoản miễn phí</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="margin-bottom:12px;"><i class="fa-solid fa-chart-line"></i> 1<span>Funn</span></a>
+                <p>Nền tảng quản lý quảng cáo thông minh thế hệ mới. Giúp doanh nghiệp tối ưu hóa chi phí và bứt phá doanh thu.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Sản phẩm</h4>
+                <ul>
+                    <li><a href="#tinh-nang">Tính năng</a></li>
+                    <li><a href="#bang-gia">Bảng giá</a></li>
+                    <li><a href="#">API & Tích hợp</a></li>
+                    <li><a href="#">Changelog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hỗ trợ</h4>
+                <ul>
+                    <li><a href="#faq">Câu hỏi thường gặp</a></li>
+                    <li><a href="#">Tài liệu hướng dẫn</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Liên hệ</h4>
+                <ul>
+                    <li><i class="fa-solid fa-envelope" style="margin-right:8px;color:var(--primary);"></i> support@1funn.com</li>
+                    <li><i class="fa-solid fa-phone" style="margin-right:8px;color:var(--primary);"></i> 1900-xxxx</li>
+                    <li><i class="fa-solid fa-location-dot" style="margin-right:8px;color:var(--primary);"></i> TP. Hồ Chí Minh, Việt Nam</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 1Funn Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        mobileMenuBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => navMenu.classList.remove('active'));
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            document.querySelectorAll(".reveal").forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add("active");
+                }
+            });
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+
+        // FAQ Accordion
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            document.querySelectorAll('.faq-item').forEach(el => {
+                if (el !== item) el.classList.remove('active');
+            });
+            item.classList.toggle('active');
+        }
+
+        // Count-up Animation
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = +el.dataset.target;
+                    const suffix = target === 5000 ? '+' : target === 10 ? 'T+' : target === 99 ? '.9%' : '/7';
+                    let current = 0;
+                    const increment = target / 60;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        el.textContent = Math.floor(current) + suffix;
+                    }, 25);
+                    countObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stat-number').forEach(el => countObserver.observe(el));
+
+        // Particle Background
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (4 + Math.random() * 4) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+        });
+
+        // Active Nav Link on Scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) current = section.getAttribute('id');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
