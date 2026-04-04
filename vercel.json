@@ -3,6 +3,14 @@
     {
       "source": "/",
       "destination": "/main.html"
+    },
+    {
+      "source": "/term-of-service",
+      "destination": "/terms-of-service.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
     }
   ]
 }
